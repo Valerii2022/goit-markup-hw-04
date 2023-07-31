@@ -376,7 +376,7 @@ button {
   align-items: center;
   padding: 16px 32px;
   border-radius: 4px;
-  border: 1px solid var(--lightslate, var(--subtitle-text-color));
+  border: 1px solid var(--subtitle-text-color);
 }
 
 /* FOOTER STYLES-------------------------------------------------- */

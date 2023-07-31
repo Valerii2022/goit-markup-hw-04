@@ -78,11 +78,26 @@ button {
   padding-bottom: 120px;
 }
 
+.current {
+  position: relative;
+  color: var(--pressed-state-color);
+  display: block;
+}
+
+.current::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+  background-color: var(--pressed-state-color);
+}
+
 /* HEADER STYLES----------------------------------------------------- */
 
 .header {
-  padding-top: 24px;
-  padding-bottom: 23px;
   border-bottom: 1px solid var(--accent-color);
 }
 
@@ -113,6 +128,7 @@ button {
 
 .navigate-list {
   display: flex;
+  align-items: center;
   gap: 40px;
 }
 .navigate-list .link {
@@ -131,6 +147,8 @@ button {
 }
 
 .address {
+  display: flex;
+  align-items: center;
   font-style: normal;
 }
 
@@ -153,7 +171,14 @@ button {
 /* HERO STYLES----------------------------------------------------- */
 
 .hero {
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/hero-bg.jpg);
   background-color: var(--navy-blue-color);
+  background-repeat: no-repeat;
+  background-position: center;
   padding-top: 188px;
   padding-bottom: 188px;
 }
@@ -178,6 +203,7 @@ button {
   letter-spacing: 0.04em;
   color: var(--white-background-color);
   background-color: var(--primary-brand-color);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
   padding-top: 16px;
   padding-bottom: 16px;
   padding-left: 32px;
@@ -204,6 +230,17 @@ button {
 
 .benefits .item {
   flex-basis: calc((100% - 72px) / 4);
+}
+
+.benefits .icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light-color);
+  border-radius: 4px;
+  width: 100%;
+  height: 112px;
+  margin-bottom: 8px;
 }
 
 .benefits .subtitle {
@@ -271,12 +308,17 @@ button {
   background-color: var(--white-background-color);
   flex-basis: calc((100% - 72px) / 4);
   border-radius: 0 0 4px 4px;
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 
 .our-team .name-wrap {
   text-align: center;
   padding-top: 32px;
   padding-bottom: 32px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .our-team .subtitle {
@@ -292,6 +334,49 @@ button {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
+  margin-bottom: 8px;
+}
+
+.social-icons-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.social-icons-list .link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-brand-color);
+}
+
+/* CUSTOMERS STYLES----------------------------------------------- */
+
+.customers .title {
+  font-size: 36px;
+  line-height: 1.11;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  color: var(--navy-blue-color);
+  margin-bottom: 72px;
+}
+
+.customers .list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.customers .link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 32px;
+  border-radius: 4px;
+  border: 1px solid var(--lightslate, var(--subtitle-text-color));
 }
 
 /* FOOTER STYLES-------------------------------------------------- */
@@ -300,6 +385,15 @@ button {
   background-color: var(--navy-blue-color);
   padding-top: 100px;
   padding-bottom: 100px;
+}
+
+.footer .container {
+  display: flex;
+  align-items: start;
+}
+
+.footer .logo-wrap {
+  margin-right: 120px;
 }
 
 .footer .logo {
@@ -318,6 +412,19 @@ button {
   letter-spacing: 0.02em;
   color: var(--light-color);
   max-width: 264px;
+}
+
+.footer .social-wrap {
+  width: 208px;
+}
+
+.social-wrap .title {
+  color: var(--white-background-color);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
 }
 
 /* PORTFOLIO STYLES------------------------------------- */

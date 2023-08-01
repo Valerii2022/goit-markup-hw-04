@@ -95,6 +95,12 @@ button {
   background-color: var(--pressed-state-color);
 }
 
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 /* HEADER STYLES----------------------------------------------------- */
 
 .header {
@@ -139,6 +145,7 @@ button {
   color: var(--navy-blue-color);
   padding-top: 24px;
   padding-bottom: 24px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navigate-list .link:hover,
@@ -161,6 +168,7 @@ button {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--primary-text-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address .link:hover,
@@ -214,6 +222,7 @@ button {
   margin-left: auto;
   display: block;
   min-width: 169px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero .btn:hover,
@@ -349,7 +358,18 @@ button {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  color: var(--light-color);
   background-color: var(--primary-brand-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-icons-list .link:hover,
+.social-icons-list .link:focus {
+  background-color: var(--pressed-state-color);
+}
+
+.social-icons-list .icon {
+  fill: currentColor;
 }
 
 /* CUSTOMERS STYLES----------------------------------------------- */
@@ -377,6 +397,19 @@ button {
   padding: 16px 32px;
   border-radius: 4px;
   border: 1px solid var(--subtitle-text-color);
+  color: var(--subtitle-text-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.customers .link:hover,
+.customers .link:focus {
+  color: var(--pressed-state-color);
+  border-color: var(--pressed-state-color);
+}
+
+.customers .icon {
+  fill: currentColor;
 }
 
 /* FOOTER STYLES-------------------------------------------------- */
@@ -427,6 +460,11 @@ button {
   margin-bottom: 16px;
 }
 
+.social-wrap .link:hover,
+.social-wrap .link:focus {
+  background-color: var(--success-color);
+}
+
 /* PORTFOLIO STYLES------------------------------------- */
 
 .portfolio {
@@ -455,13 +493,19 @@ button {
   padding-right: 24px;
   border: 1px solid var(--accent-color);
   border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter .btn:hover,
 .filter .btn:focus {
   color: var(--white-background-color);
   background-color: var(--pressed-state-color);
-  border: 1px solid transparent;
+  border-color: transparent;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12),
+    0px 2px 1px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.1);
 }
 
 .cards {
@@ -473,6 +517,47 @@ button {
 
 .cards .item {
   flex-basis: calc((100% - 48px) / 3);
+  box-shadow: none;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cards .item:hover,
+.cards .item:focus {
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+}
+
+.cards .item .overlay {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cards .item:hover .overlay,
+.cards .item:focus .overlay {
+  transform: translateY(0);
+}
+
+.cards .img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.cards .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-brand-color);
+  padding: 40px 32px;
+  transform: translateY(100%);
+}
+
+.cards .overlay-text {
+  color: var(--light-color);
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
 }
 
 .cards .title-wrap {
@@ -499,4 +584,59 @@ button {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--primary-text-color);
+}
+
+/* MODAL STYLES------------------------------------ */
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden .modal {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.modal {
+  width: 408px;
+  height: 584px;
+  background-color: var(--modal-background-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 4px;
+}
+
+.close-btn {
+  width: 24px;
+  height: 24px;
+  color: var(--navy-blue-color);
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  border: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-btn:hover {
+  color: var(--white-background-color);
+  background-color: var(--pressed-state-color);
+}
+
+.close-btn .icon {
+  fill: currentColor;
 }

@@ -548,12 +548,12 @@ button {
     0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 
-.cards .item .overlay-text {
+.cards .link .overlay-text {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.cards .item:hover .overlay-text,
-.cards .item:focus .overlay-text {
+.cards .link:hover .overlay-text,
+.cards .link:focus .overlay-text {
   transform: translateY(0%);
 }
 
